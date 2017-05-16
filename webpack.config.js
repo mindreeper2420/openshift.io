@@ -118,6 +118,9 @@ module.exports = {
       }, {
         test: /\.html$/,
         use: ['html-loader']
+      }, {
+        test: /\.mp4$/,
+        loader: 'url?limit=10000&mimetype=video/mp4'
       },
     ]
   },
@@ -172,6 +175,13 @@ module.exports = {
       AUTH_API_URL: JSON.stringify(process.env.FABRIC8_WIT_API_URL),
       STACK_API_URL: JSON.stringify(process.env.FABRIC8_STACK_API_URL)
     }),
+    new CopyWebpackPlugin([
+      { from:
+          './src/assets/media/demo.mp4',
+        to:
+          '_openshiftio/assets/media/[name].mp4'
+      }
+    ]),
     extractSass,
     webpackCopyPlugin,
     /*
