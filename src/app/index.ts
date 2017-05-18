@@ -361,10 +361,10 @@ function collapseNavbar() {
   }
 }
 
-$("#OSOImg").click(function(){
+$("#OSOImg").click(function () {
   $("#OSO").slideToggle("slow");
 });
-$("#RHDImg").click(function(){
+$("#RHDImg").click(function () {
   $("#RHD").slideToggle("slow");
 });
 
@@ -385,6 +385,7 @@ $(document)
     // Load the config to a global var
     loadConfig<OpenshiftIoConfig>('www.openshift.io', (config) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       analytics.loadAnalytics(config.analyticsWriteKey);
       $('#register').click(function () {
@@ -399,6 +400,15 @@ $(document)
         .attr('href', config.waitlistUrl)
         .on('click touch', analytics.trackRegister);
 >>>>>>> fix: make analytics write key use env var
+=======
+
+      analytics.loadAnalytics(config.analyticsWriteKey);
+      loadDtm(url, config.analyticsWriteKey);
+      $('#register').click(function () {
+        analytics.trackRegister();
+        window.location.href = config.waitlistUrl;
+      });
+>>>>>>> fix: use a click event
     });
 
     // Create a nice representation of our URL
