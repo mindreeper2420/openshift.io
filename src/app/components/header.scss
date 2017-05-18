@@ -76,8 +76,19 @@
     padding-right: 30px;
     border: 1px solid;
     border-color: $color-rh-blue-light;
+    &:hover { cursor: pointer;
+      a {
+        border-color: $color-rh-blue;
+        color: $color-rh-blue;
+      }
+    }
     a {
+      border-color: $color-rh-blue;
       color: $color-rh-blue-light;
+      &:hover {
+        border-color: $color-rh-blue;
+        color: $color-rh-blue !important;
+      }
     }
   }
   @media (min-width: 768px) {
@@ -98,7 +109,24 @@
         -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
            -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
                 transition: background .5s ease-in-out, padding .5s ease-in-out;
-        a { color: $color-pf-white; }
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:focus,
+        &:active:hover,
+        .active {
+          background-color: $color-rh-red-dark;
+          border-color: $color-rh-red-dark;
+          color: $color-pf-white;
+          cursor: pointer;
+          a {
+            border-color: $color-rh-red;
+            color: $color-pf-white;
+          }
+        }
+        a { color: $color-pf-white;
+          &:hover { color: $color-pf-white !important; }
+        }
       }
     }
   }

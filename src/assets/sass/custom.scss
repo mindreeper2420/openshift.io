@@ -42,6 +42,10 @@ h3 { font-size: 1.500em; }
   left: 0;
   background-color: rgba(25 ,29, 34, .25);
 }
+.cover-filter-stars {
+  @extend .cover-filter;
+  background-color: rgba(25 ,29, 34, .75);
+}
 .row-spacer { margin-top: 100px; }
 #login:hover { cursor: pointer; }
 
