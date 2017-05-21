@@ -15,7 +15,7 @@
     color: $color-pf-white;
     border: 1px solid $color-pf-white;
     border-radius: 4px;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 5px 15px;
     &:focus,
     &:active { outline: none; }
@@ -49,9 +49,9 @@
   .nav {
     li {
       a {
-        transition: background .3s ease-in-out;
-          -webkit-transition: background .3s ease-in-out;
-          -moz-transition: background .3s ease-in-out;
+        -webkit-transition: background .3s ease-in-out;
+           -moz-transition: background .3s ease-in-out;
+                transition: background .3s ease-in-out;
         &:hover {
           background-color: transparent;
           color: rgba($color-pf-white, 0.8);
@@ -91,7 +91,7 @@
       }
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 375px) {
     background: $color-pf-black;
     letter-spacing: 1px;
     padding: 0 0;
@@ -100,7 +100,8 @@
             transition: background .5s ease-in-out, padding .5s ease-in-out;
     &.top-nav-collapse {
       background: $color-pf-black;
-      border-bottom: 1px solid rgba(black, 0.3);
+      border-bottom: 1px solid;
+      border-bottom-color: rgba(black, 0.3);
       opacity: .8;
       &:hover { opacity: 1; }
       .nav-registration {
