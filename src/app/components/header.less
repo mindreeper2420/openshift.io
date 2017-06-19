@@ -1,9 +1,9 @@
-@import '../../assets/sass/_custom-variables';
-@import '../../assets/sass/_colors';
+@import (reference) '../../assets/styles/_custom-variables';
+@import (reference) '../../assets/styles/_colors';
 
 .hide { display: none; }
 .navbar-custom {
-  background-color: $color-pf-black;
+  background-color: @color-pf-black;
   margin-bottom: 0;
   min-height: 85px;
   .navbar-collapse {
@@ -12,10 +12,10 @@
   }
   .navbar-toggle {
     font-size: 16px;
-    color: $color-pf-white;
-    border: 1px solid $color-pf-white;
+    color: @color-pf-white;
+    border: 1px solid @color-pf-white;
     border-radius: 4px;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 5px 15px;
     &:focus,
     &:active { outline: none; }
@@ -31,7 +31,7 @@
     }
     &:focus { outline: none; }
   }
-  a { color: $color-pf-white; }
+  a { color: @color-pf-white; }
   .brand-left{
     margin-top: 10px;
     position: fixed;
@@ -49,12 +49,12 @@
   .nav {
     li {
       a {
-        -webkit-transition: background .3s ease-in-out;
-           -moz-transition: background .3s ease-in-out;
-                transition: background .3s ease-in-out;
+        transition: background .3s ease-in-out;
+          -webkit-transition: background .3s ease-in-out;
+          -moz-transition: background .3s ease-in-out;
         &:hover {
           background-color: transparent;
-          color: rgba($color-pf-white, 0.8);
+          color: rgba(255, 255, 255, 0.8);
           outline: none;
         }
         &:focus,
@@ -64,8 +64,8 @@
         }
       }
       &.active { outline: none;
-        a { background-color: rgba($color-pf-black, 0.3);
-          &:hover { color: $color-pf-white; }
+        a { background-color: rgba(3, 3, 3, 0.3);
+          &:hover { color: @color-pf-white; }
         }
       }
     }
@@ -75,59 +75,30 @@
     padding-left: 30px;
     padding-right: 30px;
     border: 1px solid;
-    border-color: $color-rh-blue-light;
-    &:hover { cursor: pointer;
-      a {
-        border-color: $color-rh-blue;
-        color: $color-rh-blue;
-      }
-    }
+    border-color: @color-rh-blue-light;
     a {
-      border-color: $color-rh-blue;
-      color: $color-rh-blue-light;
-      &:hover {
-        border-color: $color-rh-blue;
-        color: $color-rh-blue !important;
-      }
+      color: @color-rh-blue-light;
     }
   }
-  @media (min-width: 375px) {
-    background: $color-pf-black;
+  @media (min-width: 768px) {
+    background: @color-pf-black;
     letter-spacing: 1px;
     padding: 0 0;
     -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
        -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
             transition: background .5s ease-in-out, padding .5s ease-in-out;
     &.top-nav-collapse {
-      background: $color-pf-black;
-      border-bottom: 1px solid;
-      border-bottom-color: rgba(black, 0.3);
+      background: @color-pf-black;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
       opacity: .8;
       &:hover { opacity: 1; }
       .nav-registration {
-        border-color: $color-rh-red;
-        background-color: $color-rh-red;
+        border-color: @color-rh-red;
+        background-color: @color-rh-red;
         -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
            -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
                 transition: background .5s ease-in-out, padding .5s ease-in-out;
-        &:hover,
-        &:focus,
-        &:active,
-        &:active:focus,
-        &:active:hover,
-        .active {
-          background-color: $color-rh-red-dark;
-          border-color: $color-rh-red-dark;
-          color: $color-pf-white;
-          cursor: pointer;
-          a {
-            border-color: $color-rh-red;
-            color: $color-pf-white;
-          }
-        }
-        a { color: $color-pf-white;
-          &:hover { color: $color-pf-white !important; }
-        }
+        a { color: @color-pf-white; }
       }
     }
   }
@@ -137,10 +108,10 @@
     margin-top: 10px;
     > .dropdown-menu {
       > li {
-        > a { color: $color-pf-black;
+        > a { color: @color-pf-black;
           &:hover {
-            border-color: $color-pf-white;
-            color: $color-pf-black-300;
+            border-color: @color-pf-white;
+            color: @color-pf-black-300;
           }
         }
       }

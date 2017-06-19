@@ -1,14 +1,14 @@
 .btn {
   white-space: normal !important;
   word-wrap: break-word;
-  font-size: $font-size-base;
+  font-size: @font-size-base;
 }
 .btn-lg { padding: 12px 20px; }
 .btn-default {
   background-image: none;
   background-color: #4c4c4c;
   border-color: #4c4c4c;
-  color: $color-pf-white;
+  color: @color-pf-white;
   &:hover,
   &:focus,
   &:active {
@@ -19,9 +19,9 @@
 .btn-heavy-cta {
   padding: 9px 40px;
   background-image: none;
-  background-color: $color-rh-red;
-  border-color: $color-rh-red;
-  color: $color-pf-white;
+  background-color: @color-rh-red;
+  border-color: @color-rh-red;
+  color: @color-pf-white;
   @media(max-width: 768px) { padding: 9px 20px; }
   @media(max-width: 320px) { padding: 9px 15px; }
   margin-bottom: 0;
@@ -33,25 +33,25 @@
   &:active:focus,
   &:active:hover,
   .active {
-    background-color: $color-rh-red-dark;
-    border-color: $color-rh-red-dark;
-    color: $color-pf-white;
+    background-color: @color-rh-red-dark;
+    border-color: @color-rh-red-dark;
+    color: @color-pf-white;
   }
 }
 .btn-open-red {
   background-image: none;
   background-color: transparent;
-  border-color: $color-rh-red;
-  color: $color-pf-white;
+  border-color: @color-rh-red;
+  color: @color-pf-white;
   &:hover {
-    background-color: $color-rh-red-dark;
-    color: $color-pf-white;
+    background-color: @color-rh-red-dark;
+    color: @color-pf-white;
   }
 }
 .btn-bordered-blue {
-  background: $color-pf-white;
-  border-color: $color-rh-blue;
-  color: $color-rh-blue;
+  background: @color-pf-white;
+  border-color: @color-rh-blue;
+  color: @color-rh-blue;
   &:hover,
   &:focus,
   &:active,
@@ -59,25 +59,25 @@
   &:active:hover,
   .active {
     box-shadow: none;
-    background-color: $color-rh-blue-light;
-    border-color: $color-rh-blue-light;
-    color: $color-pf-white;
+    background-color: @color-rh-blue-light;
+    border-color: @color-rh-blue-light;
+    color: @color-pf-white;
   }
 }
 .btn-accent {
   background-image: none;
-  background-color: $color-rh-blue-light;
-  border-color: $color-rh-blue-light;
-  color: $color-pf-white;
+  background-color: @color-rh-blue-light;
+  border-color: @color-rh-blue-light;
+  color: @color-pf-white;
   &:hover,
   &:focus,
   &:active,
   &:active:focus,
   &:active:hover,
   .active {
-    background-color: $color-rh-blue-xlight;
-    border-color: $color-rh-blue-xlight;
-    color: $color-pf-white;
+    background-color: @color-rh-blue-xlight;
+    border-color: @color-rh-blue-xlight;
+    color: @color-pf-white;
   }
 }
 .btn-outline {
@@ -86,8 +86,8 @@
   line-height: 1.44;
   background-image: none;
   background: transparent;
-  border-color: $color-rh-blue-alt;
-  color: $color-rh-blue-alt;
+  border-color: @color-rh-blue-alt;
+  color: @color-rh-blue-alt;
   &:hover,
   &:focus,
   &:active,
@@ -95,23 +95,23 @@
   &:active:hover,
   .active {
     background: transparent;
-    border-color: $color-rh-blue-xlight;
-    color: $color-rh-blue-xlight;
+    border-color: @color-rh-blue-xlight;
+    color: @color-rh-blue-xlight;
   }
 }
-.btn-link { color: $color-rh-blue;
+.btn-link { color: @color-rh-blue;
   &:hover,
   &:focus,
   &:active,
   &:active:focus,
   &:active:hover,
-  .active { color: $color-rh-blue-dark; }
+  .active { color: @color-rh-blue-dark; }
 }
 .btn-white {
   background-image: none;
-  background-color: $color-pf-white;
-  border-color: $color-pf-white;
-  color: $color-rh-red;
+  background-color: @color-pf-white;
+  border-color: @color-pf-white;
+  color: @color-rh-red;
   &:hover,
   &:focus,
   &:active,
@@ -120,6 +120,6 @@
   .active {
     background-color: #f2f2f2;
     border-color: #f2f2f2;
-    color: $color-rh-red;
+    color: @color-rh-red;
   }
 }

@@ -1,7 +1,13 @@
-@import 'variables';
-@import 'custom-variables';
-@import 'custom-mixins';
-@import 'custom-fonts';
+@import (reference) 'variables';
+@import (reference) '_custom-variables';
+@import (reference) '_custom-fonts';
+@import (reference) '_colors';
+@import (reference) '_layout';
+@import (reference) '_video';
+@import (reference) '_buttons';
+@import (reference) 'features';
+@import (reference) '_lightbox';
+@import (reference) '_footer';
 
 h1 {
   font-size: 2em;
@@ -9,7 +15,7 @@ h1 {
 }
 h2 {
   font-size: 1.875em;
-  color: $color-pf-white;
+  color: @color-pf-white;
 }
 h3 { font-size: 1.500em; }
 .top-banner {
@@ -24,7 +30,7 @@ h3 { font-size: 1.500em; }
   // background-color: rgba(0, 0, 0, 0.6);
   background-color: #303030;
   box-shadow: 0 0 5px #303030;
-  color: $color-pf-white;
+  color: @color-pf-white;
   ul {
     padding-left: 20px;
     -webkit-padding-start: 20px;
@@ -42,17 +48,5 @@ h3 { font-size: 1.500em; }
   left: 0;
   background-color: rgba(25 ,29, 34, .25);
 }
-.cover-filter-stars {
-  @extend .cover-filter;
-  background-color: rgba(25 ,29, 34, .75);
-}
 .row-spacer { margin-top: 100px; }
 #login:hover { cursor: pointer; }
-
-@import 'colors';
-@import 'layout';
-@import 'video';
-@import 'buttons';
-@import 'features';
-@import 'lightbox';
-@import 'footer';

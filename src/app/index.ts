@@ -2,7 +2,7 @@ import 'core-js/es6/string';
 
 import * as $ from 'jquery';
 import * as URI from 'urijs';
-import '../assets/sass/custom.scss';
+import '../assets/styles/custom.less';
 
 import Header from "./components/header";
 
@@ -102,6 +102,7 @@ export class Auth {
     $("#waitlistform").show();
     $("#waitlisttext").show();
     $(".login-hide").show();
+    $("#home").hide();
     this.updateUserMenu();
   }
 
@@ -182,6 +183,7 @@ export class Auth {
     $("#waitlistform").hide();
     $("#waitlisttext").hide();
     $(".login-hide").hide();
+    $("#home").show();
   }
 
   getUrlParams(): Object {
@@ -213,7 +215,6 @@ export class Auth {
           $("#nouserimage").removeClass("hidden");
         }
         $("#name").html(user.attributes.fullName);
-        $("#accounthome").attr("href", "/_home");
         $("#profilelink").attr("href", "/" + user.attributes.username);
         $("#settingslink").attr("href", "/" + user.attributes.username + "/_settings");
         $("#loggedout").hide();
@@ -295,89 +296,8 @@ function loadScripts(url: any) {
   // Add patternfly - I don't need it in the main bundle
   $("body").append("<script async src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/" +
     "bootstrap.min.js\"></script>");
-  $("body").append("<script async src=\"https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.21.0/js/patter" +
+  $("body").append("<script async src=\"https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.25.0/js/patter" +
     "nfly.min.js\"></script>");
-<<<<<<< HEAD
-=======
-}
-
-function loadDtm(url: any, analyticsWriteKey: string) {
-  if (analyticsWriteKey != 'disabled') {
-
-    // Load Adobe DTM
-    let dpals = {
-      'default': 'www.redhat.com/dtm-staging.js',
-      'prod-preview.openshift.io': 'www.redhat.com/dtm-staging.js',
-      'www.prod-preview.openshift.io': 'www.redhat.com/dtm-staging.js',
-      'openshift.io': 'www.redhat.com/dtm.js',
-      'www.openshift.io': 'www.redhat.com/dtm.js',
-    } as any;
-    let dpal: string;
-    let hostname = url.hostname();
-    if (dpals.hasOwnProperty(hostname)) {
-      dpal = dpals[hostname];
-    } else {
-      dpal = dpals['default'];
-    }
-
-    $.ajax({
-      url: ('https:' === document.location.protocol ? 'https://' : 'http://') + dpal,
-      dataType: 'script',
-      success: () => {
-        let satellite: any = (window as any)._satellite;
-        if (satellite && typeof satellite.pageBottom === 'function') {
-          satellite.pageBottom();
-        }
-        if (
-          satellite &&
-          typeof satellite.getVisitorId === 'function' &&
-          typeof satellite.getVisitorId().getMarketingCloudVisitorID === 'function'
-        ) {
-          localStorage['openshiftio.adobeMarketingCloudVisitorId'] = satellite.getVisitorId().getMarketingCloudVisitorID();
-        }
-      }
-    });
-  }
->>>>>>> fix: make analytics write key use env var
-}
-
-function loadDtm(url: any, analyticsWriteKey: string) {
-  if (analyticsWriteKey != 'disabled') {
-
-    // Load Adobe DTM
-    let dpals = {
-      'default': 'www.redhat.com/dtm-staging.js',
-      'prod-preview.openshift.io': 'www.redhat.com/dtm-staging.js',
-      'www.prod-preview.openshift.io': 'www.redhat.com/dtm-staging.js',
-      'openshift.io': 'www.redhat.com/dtm.js',
-      'www.openshift.io': 'www.redhat.com/dtm.js',
-    } as any;
-    let dpal: string;
-    let hostname = url.hostname();
-    if (dpals.hasOwnProperty(hostname)) {
-      dpal = dpals[hostname];
-    } else {
-      dpal = dpals['default'];
-    }
-
-    $.ajax({
-      url: ('https:' === document.location.protocol ? 'https://' : 'http://') + dpal,
-      dataType: 'script',
-      success: () => {
-        let satellite: any = (window as any)._satellite;
-        if (satellite && typeof satellite.pageBottom === 'function') {
-          satellite.pageBottom();
-        }
-        if (
-          satellite &&
-          typeof satellite.getVisitorId === 'function' &&
-          typeof satellite.getVisitorId().getMarketingCloudVisitorID === 'function'
-        ) {
-          localStorage['openshiftio.adobeMarketingCloudVisitorId'] = satellite.getVisitorId().getMarketingCloudVisitorID();
-        }
-      }
-    });
-  }
 }
 
 export function addToast(cssClass: string, htmlMsg: string) {
@@ -392,20 +312,27 @@ export function addToast(cssClass: string, htmlMsg: string) {
   $("#toastMessage").html(htmlMsg);
 }
 
+// ===== Scroll to Top ====
+$(window).scroll(function () {
+  if ($(this).scrollTop() >= 50) {
+    $('#return-to-top').fadeIn(200);
+  } else {
+    $('#return-to-top').fadeOut(200);
+  }
+});
+$('#return-to-top').click(function () {
+  $('body,html').animate({
+    scrollTop: 0
+  }, 500);
+});
+
 function collapseNavbar() {
-  if ($(".navbar").offset().top > 200) {
+  if ($(".navbar").offset().top > 100) {
     $(".navbar-fixed-top").addClass("top-nav-collapse");
   } else {
     $(".navbar-fixed-top").removeClass("top-nav-collapse");
   }
 }
-
-$("#OSOImg").click(function () {
-  $("#OSO").slideToggle("slow");
-});
-$("#RHDImg").click(function () {
-  $("#RHD").slideToggle("slow");
-});
 
 $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
@@ -423,6 +350,7 @@ $(document)
 
     // Load the config to a global var
     loadConfig<OpenshiftIoConfig>('www.openshift.io', (config) => {
+
       analytics.loadAnalytics(config.analyticsWriteKey);
       $('#register').click(function () {
         analytics.trackRegister();
@@ -431,6 +359,10 @@ $(document)
     });
 
     // Create a nice representation of our URL
+
+
+    // Hide Home menu item
+    $("#home").hide();
 
     // Build services for the login widget
     let auth = new Auth(analytics);

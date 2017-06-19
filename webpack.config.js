@@ -9,31 +9,9 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ROOT = path.resolve(__dirname, '.');
 const isProd = process.env.NODE_ENV === "production";
 
-const sassModules = [
-  {
-    name: 'bootstrap'
-  }, {
-    name: 'font-awesome',
-    module: 'font-awesome',
-    path: 'font-awesome',
-    sass: 'scss'
-  }, {
-    name: 'patternfly',
-    module: 'patternfly-sass-with-css'
-  }
-];
-
-sassModules.forEach(val => {
-  val.module = val.module || val.name + '-sass';
-  val.path = val.path || path.join(val.module, 'assets');
-  val.modulePath = val.modulePath || path.join('node_modules', val.path);
-  val.sass = val.sass || path.join('stylesheets');
-  val.sassPath = path.join(ROOT, val.modulePath, val.sass);
-});
-
-const extractSass = new ExtractTextPlugin({
-  filename: "/_openshiftio/[name].css",
-  disable: !isProd
+// ExtractTextPlugin
+const extractCSS = new ExtractTextPlugin({
+  filename: '_assets/stylesheets/[name].[id]' + ( isProd ? '.[contenthash]' : '' ) + '.css'
 });
 
 let webpackCopyPlugin;
@@ -74,17 +52,20 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/
       }, {
-        test: /\.scss$/,
-        use: extractSass.extract({
+        test: /\.less$/,
+        use: extractCSS.extract({
           fallback: 'style-loader',
           use: [{
             loader: 'css-loader'
-          }, {
-            loader: 'sass-loader',
+          },
+          {
+            loader: 'less-loader',
             options: {
-              includePaths: sassModules.map(val => {
-                return val.sassPath;
-              })
+              paths: [
+                path.resolve(__dirname, "../node_modules/patternfly/src/less"),
+                path.resolve(__dirname, "../node_modules/patternfly/node_modules")
+              ],
+              sourceMap: true
             }
           }
           ]
@@ -182,7 +163,7 @@ module.exports = {
           '_openshiftio/assets/media/[name].mp4'
       }
     ]),
-    extractSass,
+    extractCSS,
     webpackCopyPlugin,
     /*
      * Generate FavIcons from the master svg in all formats

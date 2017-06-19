@@ -1,9 +1,8 @@
 a.lightbox img {
   // height: 150px;
   margin: 0 20px 20px 0;
-  width: 100%;
   border: 3px solid;
-  border-color: $color-pf-white;
+  border-color: @color-pf-white;
   box-shadow: 0 0 8px rgba(0, 0 ,0, .3);
 }
 .lightbox-target {
@@ -29,7 +28,7 @@ a.lightbox img {
     max-height: 0%;
     max-width: 0%;
     border: 3px solid;
-    border-color: $color-pf-white;
+    border-color: @color-pf-white;
     box-shadow: 0 0 8px rgba(0,0,0,.3);
     box-sizing: border-box;
     -webkit-transition: .5s ease-in-out;
@@ -46,8 +45,8 @@ a.lightbox-close {
   width: 50px;
   height: 50px;
   box-sizing: border-box;
-  background-color: $color-pf-white;
-  color: $color-pf-black;
+  background-color: @color-pf-white;
+  color: @color-pf-black;
   text-decoration: none;
   -webkit-transition: .5s ease-in-out;
      -moz-transition: .5s ease-in-out;
@@ -60,7 +59,7 @@ a.lightbox-close {
     display: block;
     height: 30px;
     width: 1px;
-    background-color: $color-pf-black;
+    background-color: @color-pf-black;
     -webkit-transform: rotate(45deg);
        -moz-transform: rotate(45deg);
          -o-transform: rotate(45deg);
@@ -74,7 +73,7 @@ a.lightbox-close {
     display: block;
     height: 30px;
     width: 1px;
-    background-color: $color-pf-black;
+    background-color: @color-pf-black;
     -webkit-transform: rotate(-45deg);
        -moz-transform: rotate(-45deg);
          -o-transform: rotate(-45deg);
