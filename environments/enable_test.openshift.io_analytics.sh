@@ -1,3 +1,0 @@
-#!/bin/bash
-
-export ANALYTICS_WRITE_KEY=jTIYQ2F2o2x7VbG9lcXftGAYX34y7Xki

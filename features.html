@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OpenShift.io Features</title>
   <meta name="theme-color" content="#030303"/>
-  <title>OpenShift.io</title>
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="expires" content="0"/>
@@ -15,19 +15,21 @@
   <meta name="google-site-verification" content="DYysfqUDyUP6WNbcNfF7RqFN6X7VK1tJXV5QLoU7ojs" />
   <link rel="manifest" href="/manifest.json">
   <!-- PatternFly Styles -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.26.1/css/patternfly.min.css" rel="stylesheet" media="screen, print">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.26.1/css/patternfly-additions.min.css" rel="stylesheet" media="screen, print">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.30.0/css/patternfly.min.css" rel="stylesheet" media="screen, print">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.30.0/css/patternfly-additions.min.css" rel="stylesheet" media="screen, print">
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono|Overpass:300,400,600,700" rel="stylesheet">
+  <link href="css/osio.css" rel="stylesheet" media="screen, print">
   <script async id="adobe_dtm" src="https://www.redhat.com/dtm.js" type="text/javascript"></script>
 </head>
 
 <body>
-  <div class="grid-container">
+  <div class="grid-container--features">
     <div class="header">
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
               <span class="navbar-menu-title">MENU</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -80,33 +82,99 @@
         </div>
       </nav>
     </div>
-    <div class="content text-center">
-      <div class="content--row_1 register">
+    <div class="content">
+      <div class="content--row_1 video">
         <div></div>
-        <div class="register--content">
-          <h1>INTRODUCING OPENSHIFT.IO</h1>
-          <p class="introduction-text">
-            OpenShift.io is an open online development environment for planning, creating and deploying hybrid cloud services.
-          </p>
-          <a class="btn btn-heavy-cta btn-lg beta-submit uppercase" role="button" id="registerContent">sign up for the preview</a>
-          <div class="help-block">
-            Currently waitlisting registrants.
+        <div class="video--content">
+          <h1 class="uppercase">See OpenShift.io in Action</h1>
+          <div class="video--content_container">
+            <iframe title="OpenShift.io Introduction" width="560" height="315" src="https://www.youtube.com/embed/XNdi4AC_EPQ?rel=0" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div></div>
       </div>
-      <div class="content--row_2 desktop-to-iphone">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-          <img src="../assets/images/OSIO-laptop-screen-1200.png" alt="Product Screenshots" class="screenshot" />
+      <div class="content--row_dashboard">
+        <div></div>
+        <div>
+          <img src="img/screencap_home.png" alt="Dashboard Screenshot" width="100%" />
         </div>
-        <div class="col-sm-3"></div>
+        <div>
+          <h2>WHAT IS OPENSHIFT.IO (OSIO)?</h2>
+          <p>
+            OpenShift.io, combined with OpenShift Online, provides an integrated approach to DevOps, including all the tools a team needs to analyze, plan, create and deploy services.
+          </p>
+          <p>
+            <ul>
+              <li>One-click Linux container management</li>
+              <li>Machine learning system</li>
+              <li>Open Source</li>
+              <li>Incorporate many projects like fabric8 and Eclipse Che</li>
+            </ul>
+          </p>
+        </div>
+        <div></div>
       </div>
-      <div class="content--row_3 learn-more">
-        <a href="features.html">Learn more about the features <i class="fa fa-caret-right"></i></a>
+      <div class="content--row_analytics">
+        <div></div>
+        <div>
+          <h2>ALLOW DEVELOPMENT TEAMS TO MAKE MORE CONFIDENT TECHNOLOGY DECISIONS</h2>
+          <p>
+            OpenShift.io helps developers make better decisions; it provides actionable recommendations and insights around the software components developers use.
+          </p>
+          <p>
+            <ul>
+              <li>OpenShift.io Analytics applies machine learning algorithms based on usage patterns of components</li>
+              <li>Data is gathered from public sources like Github and Maven</li>
+              <li>Get tangible information for credible decision-making</li>
+            </ul>
+          </p>
+        </div>
+        <div>
+          <img src="img/screencap_stack_report.png" alt="Analytics" width="100%" />
+        </div>
+        <div></div>
       </div>
-      <div class="content--row_4 chat-mattermost">
-        <a href="https://chat.openshift.io/developers/channels/town-square" target="top" class="btn btn-bordered-blue"><i class="fa fa-comment"></i> Chat with us on MatterMost</a>
+      <div class="content--row_pipelines">
+        <div></div>
+        <div>
+          <img src="img/screencap_pipeline_complete.png" alt="Pipelines" width="100%" />
+        </div>
+        <div>
+          <h2>SIMPLE TO CREATE CONTAINERIZED DEV, TEST AND STAGING ENVIRONMENTS</h2>
+          <p>
+            Developers can automatically create containerized development environments with the workspace management capabilities of Eclipse Che.
+          </p>
+          <p>
+            <ul>
+              <li>OSIO creates environments hosted on OpenShift Online</li>
+              <li>Integrates the Jenkins Pipeline plugins</li>
+              <li>Create simplest ‘just build it’ pipeline or add promotions</li>
+              <li>Pipeline definitions written using a Groovy DSL</li>
+            </ul>
+          </p>
+        </div>
+        <div></div>
+      </div>
+      <div class="content--row_planning">
+        <div></div>
+        <div>
+          <h2>MINIMIZE TIME &amp; EFFORT TO BUILD AND MAINTAIN A DEVELOPMENT TOOL CHAIN</h2>
+          <p>
+            OpenShift.io is a hosted service with planning tools like prioritizable backlogs and kanban boards for managing your work.
+          </p>
+          <p>
+            <ul>
+              <li>Coding, editing, debugging tools on <a href="http://www.eclipse.org/che/" target="top">Eclipse Che</a></li>
+              <li>Dashboard and reporting tools</li>
+              <li>Integrated tools that share a common datastore</li>
+              <li>Tools reduces building and maintenance efforts</li>
+            </ul>
+          </p>
+        </div>
+        <div>
+          <img src="img/screencap_che.png" alt="Planner" width="100%" />
+        </div>
+        <div></div>
       </div>
     </div>
     <div class="top-footer">
@@ -198,7 +266,7 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.26.1/js/patternfly.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.30.0/js/patternfly.min.js"></script>
   <script type="text/javascript">
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
